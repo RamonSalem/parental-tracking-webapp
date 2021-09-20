@@ -1,24 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Example from './components/Example';
+import useCoordinates from './hooks/useCoordinates';
+
 
 function App() {
+  
+  const coordinates = useCoordinates();
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        This is a base
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Example title={"Example test"} />
+        {coordinates.map( (coordinate, index) => 
+        <div key={index}>
+          <div className={"coordinates"}>
+            lat: {coordinate?.lat}
+          </div>
+          <div className={"coordinates"}>
+            lnd: {coordinate?.lnd}
+          </div>
+        </div>
+        )}
       </header>
     </div>
   );
