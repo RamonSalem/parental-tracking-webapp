@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 interface Coordinates {
     lat: Number,
-    lnd: Number
+    lng: Number
 }
 
 const geolocationOptions = {
@@ -19,7 +19,7 @@ const useCoordinates = () => {
   useEffect(() => {
     if (navigator.geolocation) {
       const id = navigator.geolocation.watchPosition( position => {
-          const newCoordinates: Coordinates = {lat: position.coords.latitude, lnd: position.coords.longitude}; 
+          const newCoordinates: Coordinates = {lat: position.coords.latitude, lng: position.coords.longitude}; 
           setCoordinates( coordinates => [...coordinates, newCoordinates]);
         }, errorCallback, geolocationOptions );
       return () => navigator.geolocation.clearWatch(id);
