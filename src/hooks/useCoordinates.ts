@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 
-interface Coordinates {
+export interface Coordinates {
     lat: Number,
     lng: Number
 }
 
 const geolocationOptions = {
-  timeout: 10000
+  timeout: 60000
 }
 
 const errorCallback = (err: GeolocationPositionError) => {

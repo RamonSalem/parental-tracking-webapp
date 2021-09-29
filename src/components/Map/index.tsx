@@ -37,7 +37,6 @@ const Map = ({ coordinates }) => {
       center={position}
       zoom={15}>
       <TileLayer
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <Marker position={[-7.218234, -35.913577]}>
@@ -49,7 +48,8 @@ const Map = ({ coordinates }) => {
          {lineCoords.map(({ from, to }, index) => {
             return <Polyline key={index} positions={[
               [from.lat, from.lng], [to.lat, to.lng],
-            ]} color={'red'} />
+            ]} 
+             />
           })}
     </MapContainer>  
   );
